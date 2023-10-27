@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}"/>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% include "include/_header.html.twig" %}
+
+        {% block body %}{% endblock %}
+        {% include "include/_latest-news-section.html.twig" %}
+        {% include "_partials_contact/_page-info-section-contact.html.twig" %}
+        {% include "_partials_contact/_page-info.html.twig" %}
+        {% include "include/_footer-top-section.html.twig" %}
+
+        {% include "include/_footer.html.twig" %}
+
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.marquee.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

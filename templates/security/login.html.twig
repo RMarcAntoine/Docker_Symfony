@@ -1,0 +1,112 @@
+{% extends 'log_reg.html.twig' %}
+
+{% block title %}Se connecter !{% endblock %}
+
+{% block body %}
+
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<header class="header-section">
+    <div class="container">
+        <a class="site-logo" href="{{ path('app_home') }}">
+            <img src="{{ asset('img/logo.png') }}" alt="" />
+        </a>
+        <div class="user-panel">
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_register') }}">Enregistrement</a>
+            {% endif %}
+        </div>
+        <div class="nav-switch">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="{{ path('app_review') }}">Reviews</a></li>
+                <li><a href="{{ path('app_news') }}">News</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="center-form">
+    <form method="post" class="login-form">
+        {% if error %}
+        <div class="alert alert-danger">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+        {% endif %} {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }},
+            <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% endif %}
+
+        <h1 class="col-md-9">Connection</h1>
+        <label for="inputEmail" class="contact-info-list">Email :</label>
+        <input
+            placeholder="Email@gmail.com"
+            type="email"
+            value="{{ last_username }}"
+            name="email"
+            id="inputEmail"
+            class="form-control"
+            autocomplete="email"
+            required
+            autofocus
+        />
+        <label for="inputPassword" class="contact-info-list">Password :</label>
+        <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            id="inputPassword"
+            class="form-control"
+            autocomplete="current-password"
+            required
+        />
+
+        <input
+            type="hidden"
+            name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        />
+
+        <br />
+        <button class="site-btn btn-sm" type="submit">Se connecter</button>
+    </form>
+</div>
+
+<br />
+
+<footer class="footer-section">
+    <div class="container">
+        <ul class="footer-menu">
+            <li><a href="{{ path('app_home') }}">Home</a></li>
+            <li><a href="review.html.twig">Games</a></li>
+            <li><a href="{{ path('app_news') }}">News</a></li>
+            <li><a href="{{ path('app_contact') }}">Contact</a></li>
+        </ul>
+        <p class="copyright">
+            Copyright &copy;
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | This template is made with
+            <i class="fa fa-heart-o" aria-hidden="true"></i> by
+            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        </p>
+    </div>
+</footer>
+
+<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/jquery.marquee.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}

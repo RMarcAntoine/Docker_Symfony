@@ -1,0 +1,88 @@
+{% extends 'log_reg.html.twig' %} 
+
+{% block title %}Inscription{% endblock %} 
+
+{% block body %}
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<header class="header-section">
+    <div class="container">
+        <a class="site-logo" href="{{ path('app_home') }}">
+            <img src="{{ asset('img/logo.png') }}" alt="" />
+        </a>
+        <div class="user-panel">
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Connexion</a>
+            {% endif %}
+        </div>
+        <div class="nav-switch">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav class="main-menu">
+            <ul>
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="path('review.html.twig')">Games</a></li>
+                <li><a href="{{ path('app_news') }}">News</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="centered-form1">
+    <h1 class="col-md-9">Inscription</h1>
+    <br>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+
+    {{ form_row(registrationForm.email, {
+        label: 'Email :',
+        attr: {'class': 'form-control'}
+    }) }}
+
+    <br>
+
+    {{ form_row(registrationForm.plainPassword, {
+        label: 'Password :',
+        attr: {'class': 'form-control'}
+    }) }}
+
+    <br>
+
+    {{ form_row(registrationForm.agreeTerms, {
+        label: 'Condition utilisateur ',
+    }) }}
+
+    <br>
+
+    <button type="submit" class="site-btn btn-sm">Register</button>
+    <br>
+    {{ form_end(registrationForm) }}
+</div>
+<br>
+
+<footer class="footer-section">
+    <div class="container">
+        <ul class="footer-menu">
+            <li><a href="{{ path('app_home') }}">Home</a></li>
+            <li><a href="{{ path('app_review') }}">Reviews</a></li>
+            <li><a href="{{ path('app_news') }}">News</a></li>
+            <li><a href="{{ path('app_contact') }}">Contact</a></li>
+        </ul>
+        <p class="copyright">
+            Copyright &copy;
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | This template is made with
+            <i class="fa fa-heart-o" aria-hidden="true"></i> by
+            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        </p>
+    </div>
+</footer>
+{% endblock %}
