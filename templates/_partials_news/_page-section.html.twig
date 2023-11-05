@@ -13,7 +13,7 @@
                                     <h5>{{ newsItem.Game }}</h5>
                                     <p>
                                         <span class="news-text-short">{{ newsItem.Text|length > 100 ? newsItem.Text|slice(0, 100) ~ '...' : newsItem.Text }}</span>
-                                        <a class="read-more-link" href="detail.html.twig">Lire la suite</a>
+                                        <a class="read-more-link" href="{{ path('app_detailsnews', {'newsId': newsItem.id}) }}">Lire la suite</a>
                                         <span class="news-text-full" style="display: none;">{{ newsItem.Text }}</span>
                                     </p>
                                     <div class="rgi-extra">
@@ -25,7 +25,7 @@
                         </div>
                     {% endfor %}                    
                 </div>
-            </div>
+            </div>            
             <!-- sidebar -->
             <div class="col-lg-4 col-md-7 sidebar pt-5 pt-lg-0">
                 <!-- widget -->

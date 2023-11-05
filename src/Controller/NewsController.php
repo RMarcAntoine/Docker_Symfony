@@ -23,5 +23,6 @@ class NewsController extends AbstractController
             'page' => $page,
         ]);
     }
+
 }
 

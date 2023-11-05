@@ -1,0 +1,25 @@
+<section class="page-section recent-game-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">   
+                <div class="rgi-content">
+                    <div class="cata type">{{ newsItem.Type }}</div>
+                    <h1>{{ newsItem.Game }}</h1>
+                    <p class="detailnewsdate">{{ newsItem.Date|date("d-m-Y") }}</p> 
+                    <p>{{ newsItem.Text }}</p>
+                </div>   
+            </div>
+            <div class="col-md-6">
+                <div class="recent-game-item">
+                    <div class="rgi-thumb set-bg" data-setbg="{{ asset('img/recent-game/' ~ newsItem.Imagefile) }}"></div>
+                    <div class="widget-item">
+                        <form class="search-widget">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
