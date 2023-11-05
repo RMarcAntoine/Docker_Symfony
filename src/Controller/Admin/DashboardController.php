@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Users;
 use App\Entity\News;
 use App\Entity\Reviews;
+use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -51,5 +52,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fas fa-map-marker-alt', Users::class);
         yield MenuItem::linkToCrud('News', 'fas fa-news', News::class);
         yield MenuItem::linkToCrud('Reviews', 'fas fa-reviews', Reviews::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-reviews', Contact::class);
     }
 }
