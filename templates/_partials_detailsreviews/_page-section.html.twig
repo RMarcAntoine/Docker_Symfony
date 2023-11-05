@@ -1,0 +1,19 @@
+<section class="page-section review-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="review-item">
+                    <div class="review-cover set-bg" data-setbg="{{ asset('img/recent-game/' ~ reviewsItem.Imagefile) }}">
+                        <div class="score yellow">{{ reviewsItem.Rate }}</div>
+                    </div>
+                    <div class="review-text">
+                        <h4>{{ reviewsItem.Game }}</h4>
+                        <p>
+                            <span class="review-text-full">{{ reviewsItem.Text }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

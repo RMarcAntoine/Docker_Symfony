@@ -13,9 +13,15 @@
                                     <h5>{{ newsItem.Game }}</h5>
                                     <p>
                                         <span class="news-text-short">{{ newsItem.Text|length > 100 ? newsItem.Text|slice(0, 100) ~ '...' : newsItem.Text }}</span>
-                                        <a class="read-more-link" href="{{ path('app_detailsnews', {'newsId': newsItem.id}) }}">Lire la suite</a>
+                                        
+                                        {% if app.user %}
+                                            <a class="read-more-link" href="{{ path('app_detailsnews', {'newsId': newsItem.id}) }}">Lire la suite</a>
+                                        {% else %}
+                                            <a class="read-more-link" href="{{ path('app_login') }}">Lire la suite</a>
+                                        {% endif %}
+                                        
                                         <span class="news-text-full" style="display: none;">{{ newsItem.Text }}</span>
-                                    </p>
+                                    </p>                                    
                                     <div class="rgi-extra">
                                         <div class="rgi-star"><img src="{{ asset('img/icons/star.png') }}" alt=""></div>
                                         <div class="rgi-heart"><img src="{{ asset('img/icons/heart.png') }}" alt=""></div>

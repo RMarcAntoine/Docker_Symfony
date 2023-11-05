@@ -11,7 +11,7 @@
                             <h4>{{ reviewsItem.Game }}</h4>
                             <p>
                                 {{ reviewsItem.Text|length > 100 ? reviewsItem.Text|slice(0, 100) ~ '...' : reviewsItem.Text }}
-                                <a class="read-more-link" href="#">Lire la suite</a>
+                                <a class="read-more-link" href="{{ path('app_detailsreviews', {'reviewsItem': reviewsItem.id}) }}">Lire la suite</a>
                                 <span class="review-text-full" style="display: none;">{{ reviewsItem.Text }}</span>
                             </p>
                         </div>
