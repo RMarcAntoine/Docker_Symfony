@@ -18,7 +18,7 @@ class Contact
     private ?string $Name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Eamil = null;
+    private ?string $Email = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Subject = null;
@@ -43,14 +43,14 @@ class Contact
         return $this;
     }
 
-    public function getEamil(): ?string
+    public function getEmail(): ?string
     {
-        return $this->Eamil;
+        return $this->Email;
     }
 
-    public function setEamil(string $Eamil): static
+    public function setEmail(string $Email): static
     {
-        $this->Eamil = $Eamil;
+        $this->Email = $Email;
 
         return $this;
     }
