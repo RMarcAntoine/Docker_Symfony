@@ -25,6 +25,7 @@ class ReviewController extends AbstractController
             'reviews' => $reviews,
             'topRatedReviews' => $topRatedReviews,
             'currentPage' => $page,
+            'reviewssRepository' => $reviewsRepository
         ]);
     }
 }

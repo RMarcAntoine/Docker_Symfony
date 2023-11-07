@@ -21,6 +21,7 @@ class NewsController extends AbstractController
         return $this->render('news/news.html.twig', [
             'news' => $news,
             'page' => $page,
+            'newsRepository' => $newsRepository,
         ]);
     }
 
