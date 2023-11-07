@@ -16,16 +16,15 @@ class ReviewController extends AbstractController
         $page = $request->query->getInt('page', 1);
         $pageSize = 6;
 
-        // Calculate the offset to fetch the appropriate set of reviews
+        $topRatedReviews = $reviewsRepository->findBy([], ['Rate' => 'DESC'], 4);
+
         $offset = ($page - 1) * $pageSize;
-        
         $reviews = $reviewsRepository->findBy([], ['Rate' => 'DESC'], $pageSize, $offset);
 
         return $this->render('review/review.html.twig', [
             'reviews' => $reviews,
+            'topRatedReviews' => $topRatedReviews,
             'currentPage' => $page,
         ]);
     }
 }
-
-

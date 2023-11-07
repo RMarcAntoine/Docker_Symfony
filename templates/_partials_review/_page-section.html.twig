@@ -19,10 +19,13 @@
                 </div>
             {% endfor %}
         </div>
-        {% if reviews|length == 6 %}
-            <div class="text-center pt-4">
-                <a class="site-btn btn-sm" href="{{ path('app_review', {'page': currentPage + 1}) }}">Load More</a>
-            </div>
-        {% endif %}
+        <div class="text-center pt-4">
+            {% if currentPage > 1 %}
+                <a class="site-btn btn-sm" href="{{ path('app_review', {'page': currentPage - 1}) }}">Précédent</a>
+            {% endif %}
+            {% if reviews|length == 6 %}
+                <a class="site-btn btn-sm" href="{{ path('app_review', {'page': currentPage + 1}) }}">Suivant</a>
+            {% endif %}
+        </div>
     </div>
 </section>
